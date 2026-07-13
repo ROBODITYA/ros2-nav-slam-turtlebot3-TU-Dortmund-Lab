@@ -1,0 +1,35 @@
+ros2 launch turtlebot3_gazebo turtlebot3_rst_lab.launch.py 
+
+export TURTLEBOT3_MODEL=waffle
+
+
+ros2 launch turtlebot3_navigation2 navigation2_rst_lab.launch.py use_sim_time:=True
+
+
+# Clone the main TurtleBot3 packages
+git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
+
+# Clone the message definitions
+git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+
+# Clone the simulation packages (optional, but highly recommended)
+git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+
+
+cp ~/ros2_ws_backup/src/turtlebot3/turtlebot3_navigation2/launch/* \
+~/ros2_ws/src/turtlebot3/turtlebot3_navigation2/launch/
+
+cp ~/ros2_ws_backup/src/turtlebot3/turtlebot3_navigation2/map/* \
+~/ros2_ws/src/turtlebot3/turtlebot3_navigation2/map/
+
+cp ~/ros2_ws_backup/src/turtlebot3_simulations/turtlebot3_gazebo/launch/* \
+~/ros2_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch/
+
+cp -r ~/ros2_ws_backup/src/turtlebot3_simulations/turtlebot3_gazebo/models/rst_lab \
+~/ros2_ws/src/turtlebot3_simulations/turtlebot3_gazebo/models/
+
+cp ~/ros2_ws_backup/src/turtlebot3_simulations/turtlebot3_gazebo/worlds/* \
+~/ros2_ws/src/turtlebot3_simulations/turtlebot3_gazebo/worlds/
+
+
+
