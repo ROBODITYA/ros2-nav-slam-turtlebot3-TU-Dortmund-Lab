@@ -68,6 +68,28 @@ export TURTLEBOT3_MODEL=burger
 sudo apt install ros-humble-turtlebot3* ros-humble-navigation2 ros-humble-nav2-bringup
 ```
 
+## Creating Workspace
+
+```bash
+Create a fresh workspace:
+>> mkdir -p ~/turtlebot3_ws/src
+
+Clone the official packages into the src folder:
+>> git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3.git
+>> git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+
+Copy all folders from the Moodle additional_files > ros2_ws > src directly into your new ~/turtlebot3_ws/src folder (merge/replace when prompted).
+
+Build from the workspace root:
+>> colcon build --symlink-install
+
+Fix the global directory error by sourcing:
+>> source install/setup.bash
+
+Export your model and launch:
+>> export TURTLEBOT3_MODEL=waffle
+```
+
 ## Build
 
 ```bash
